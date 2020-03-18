@@ -8,10 +8,10 @@ import { People } from './people';
 export class PessoaService {
 
   constructor(private httpClient: HttpClient) { }
-  listarAnterior(urlPrevious) {
+  listarAnterior(urlPrevious: string) {
     return this.httpClient.get<People>(urlPrevious);
   }
-  listarProxima(urlNext) {
+  listarProxima(urlNext: string) {
     return this.httpClient.get<People>(urlNext);
   }
   listar() {

@@ -3,5 +3,12 @@ export interface Results {
     birth_year: Date;
     gender: string;
     homeworld: string;
-    species: string[];
+    species: Array<string>;    
+}
+export class Pessoa {
+    nome: string;
+    nascimento: Date;
+    genero: string;
+    raca: string;
+    planeta: string;   
 }

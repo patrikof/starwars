@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Planets } from './planets';
+import { Species } from './species';
 
 @Injectable({
   providedIn: 'root'
 })
-export class PlanetaService {
-  
+export class RacaService {
+
   constructor(private httpClient: HttpClient) { }
 
-  getPlaneta(urlPlaneta: string) {    
-    return  this.httpClient.get<Planets>(urlPlaneta);
+  getRaca(urlRaca: string) {    
+    return  this.httpClient.get<Species>(urlRaca);
   }
 }
