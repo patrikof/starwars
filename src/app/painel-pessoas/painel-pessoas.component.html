@@ -17,7 +17,7 @@
 
             <ng-container matColumnDef="Raça">
                 <th mat-header-cell *matHeaderCellDef> Raça </th>
-                <td mat-cell *matCellDef="let pessoa"> {{ pessoa.species[0].name }} </td>
+                <td mat-cell *matCellDef="let pessoa"> {{ pessoa.species[0] }} </td>
             </ng-container>
 
             <ng-container matColumnDef="Sexo">
@@ -27,7 +27,7 @@
 
             <ng-container matColumnDef="Planeta Natal">
                 <th mat-header-cell *matHeaderCellDef> Planeta Natal </th>
-                <td mat-cell *matCellDef="let pessoa"> {{ this.getPlaneta( pessoa.homeworld ) }} </td>
+                <td mat-cell *matCellDef="let pessoa"> {{ pessoa.homeworld }} </td>
             </ng-container>
 
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
