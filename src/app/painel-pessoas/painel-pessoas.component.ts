@@ -49,7 +49,7 @@ export class PainelPessoasComponent implements OnInit {
 
   getPlaneta(urlPlaneta:string){
     let planeta:string;
-    this.planetaService.getPlaneta(urlPlaneta).subscribe(resposta: any => planeta = resposta.name)
+    this.planetaService.getPlaneta(urlPlaneta).subscribe(resposta: Planets => planeta = resposta.name)
     return planeta;
   }
 
