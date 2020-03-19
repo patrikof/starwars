@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { PessoaService } from '../pessoa.service';
-import { People } from '../people';
-import { PlanetaService } from '../planeta.service';
-import { Pessoa } from '../results';
-import { RacaService } from '../raca.service';
+import { PessoaService } from '../../services/pessoa.service';
+import { People } from '../../models/people';
+import { PlanetaService } from '../../services/planeta.service';
+import { Pessoa } from '../../models/results';
+import { RacaService } from '../../services/raca.service';
 import { Observable } from 'rxjs';
 
 

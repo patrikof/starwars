@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Planets } from './planets';
+import { Planets } from '../models/planets';
 import { map } from 'rxjs/operators';
 
 @Injectable({

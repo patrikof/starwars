@@ -7,7 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 
 import { AppComponent } from './app.component';
-import { PainelPessoasComponent } from './painel-pessoas/painel-pessoas.component';
+import { PainelPessoasComponent } from './components/painel-pessoas/painel-pessoas.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
