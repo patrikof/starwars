@@ -1,6 +1,11 @@
 table {
     width: 100%;
 }
+
 .card-buttons{
     text-align: center;
+}
+
+tr.mat-row, tr.mat-footer-row, tr.mat-header-row {
+    height: 30px;
 }
