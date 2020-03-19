@@ -6,6 +6,7 @@ import { Pessoa } from '../results';
 import { RacaService } from '../raca.service';
 import { Observable } from 'rxjs';
 
+
 @Component({
   selector: 'app-painel-pessoas',
   templateUrl: './painel-pessoas.component.html',
@@ -31,8 +32,8 @@ export class PainelPessoasComponent implements OnInit {
         this.pessoas = resposta;
         this.urlAnterior = this.pessoas.previous;
         this.urlProxima = this.pessoas.next;
-        this.carregarResultados();        
-      });
+        this.carregarResultados();                
+      });     
   }
 
   listarAnterior() {
@@ -55,20 +56,6 @@ export class PainelPessoasComponent implements OnInit {
       });
   }
 
-  getPlaneta(urlPlaneta: string) {
-    console.log("iniciando o get do planeta");
-    let planeta: string;
-    this.planetaService.getPlaneta(urlPlaneta).subscribe(resposta => planeta = resposta.name)
-    console.log(planeta);
-    return planeta;
-  }
-
-  getRaca(urlRaca: string) {
-    let raca: string;
-    this.racaService.getRaca(urlRaca).subscribe(resposta => raca = resposta.name)
-    return raca;
-  }
-
   carregarResultados(){
     this.resultados = new Array<Pessoa>();
         this.pessoas.results.forEach(p => {
@@ -78,13 +65,13 @@ export class PainelPessoasComponent implements OnInit {
           pessoa.nascimento = p.birth_year;
 
           if (p.homeworld) {
-            pessoa.planeta = Observable.create(this.getPlaneta(p.homeworld));
+            pessoa.planeta = this.planetaService.getPlaneta(p.homeworld);
           }
           else {
             pessoa.planeta = Observable.create("Unknow");
           }
           if (p.species[0]) {
-            pessoa.raca = Observable.create(this.getRaca(p.species[0]));
+            pessoa.raca = this.racaService.getRaca(p.species[0]);
           }
           else {
             pessoa.planeta = Observable.create("Unknow");
