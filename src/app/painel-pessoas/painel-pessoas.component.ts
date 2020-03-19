@@ -5,6 +5,7 @@ import { PlanetaService } from '../planeta.service';
 import { Planets } from '../planets';
 import { Pessoa } from '../results';
 import { RacaService } from '../raca.service';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-painel-pessoas',
@@ -40,16 +41,16 @@ export class PainelPessoasComponent implements OnInit {
           pessoa.nascimento = p.birth_year;
 
           if (p.homeworld) {
-            pessoa.planeta = this.getPlaneta(p.homeworld);
+            pessoa.planeta =  this.planetaService.getPlaneta(p.homeworld);
           }
           else {
-            pessoa.planeta = "Unknow";
+            pessoa.planeta = of("Unknow");
           }
           if (p.species[0]) {
-            pessoa.raca = this.getRaca(p.species[0]);
+            pessoa.raca = this.racaService.getRaca(p.species[0]);
           }
           else {
-            pessoa.planeta = "Unknow";
+            pessoa.planeta = of("Unknow");
           }
           this.resultados.push(pessoa);
         });
@@ -74,7 +75,7 @@ export class PainelPessoasComponent implements OnInit {
       });
   }
 
-  getPlaneta(urlPlaneta: string) {
+  /*getPlaneta(urlPlaneta: string) {
     console.log("iniciando o get do planeta");
     let planeta: string;
     this.planetaService.getPlaneta(urlPlaneta).subscribe(resposta => planeta = resposta.name)
@@ -86,5 +87,5 @@ export class PainelPessoasComponent implements OnInit {
     let raca: string;
     this.racaService.getRaca(urlRaca).subscribe(resposta => raca = resposta.name)
     return raca;
-  }
+  }*/
 }
