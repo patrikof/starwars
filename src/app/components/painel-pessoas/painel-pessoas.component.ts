@@ -67,15 +67,11 @@ export class PainelPessoasComponent implements OnInit {
           if (p.homeworld) {
             pessoa.planeta = this.planetaService.getPlaneta(p.homeworld);
           }
-          else {
-            pessoa.planeta = Observable.create("Unknow");
-          }
+          
           if (p.species[0]) {
             pessoa.raca = this.racaService.getRaca(p.species[0]);
           }
-          else {
-            pessoa.planeta = Observable.create("Unknow");
-          }
+         
           this.resultados.push(pessoa);
         });      
   }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { People } from '../models/people';
 
 @Injectable({
@@ -15,6 +15,8 @@ export class PessoaService {
     return this.httpClient.get<People>(urlNext);
   }
   listar() {
-    return this.httpClient.get<People>('https://swapi.co/api/people/?page=1');
+    const url = 'https://swapi.co/api/people/';
+    const params = new HttpParams().set('page','1');
+    return this.httpClient.get<People>(url,{params});
   }
 }
